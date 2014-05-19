@@ -19,7 +19,7 @@ complete <- function(directory, id = 1:332) {
         ids<-vector()
         numcomplete<-vector()
         
-        doshit<-function(i) {
+        aux<-function(i) {
                 if(i<10) {
                         fp<-paste("specdata/00",as.character(i),".csv",sep="")
                 }
@@ -37,7 +37,7 @@ complete <- function(directory, id = 1:332) {
                 
         }
         
-        results<-sapply(id,doshit)
+        results<-sapply(id,aux)
         
         df<-as.data.frame(t(results))
         names(df)[1] <- "id"
