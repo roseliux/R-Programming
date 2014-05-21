@@ -10,7 +10,7 @@ corr <- function(directory, threshold = 0) {
         ## Return a numeric vector of correlations
         filenames <- list.files(directory, pattern="*.csv", full.names=TRUE)
         
-        c<-mapply(doshit,filenames,threshold)
+        c<-mapply(aux,filenames,threshold)
         cvec<-as.vector(c)
         cvec <- cvec[!is.na(cvec)]
         
@@ -19,7 +19,7 @@ corr <- function(directory, threshold = 0) {
 }
 
 
-doshit <- function(fp,threshold=0) {
+aux <- function(fp,threshold=0) {
         
         if(fp!=0) {
                 d <- read.csv(fp, header=T)
